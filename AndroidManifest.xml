@@ -22,6 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.com.android.groupstudy.SplashActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" >
+        </activity>
         <activity android:name="com.example.com.android.groupstudy.AgreeRegisterActivity" >
         </activity>
         <activity android:name="com.example.com.android.groupstudy.RegisterActivity" >
@@ -31,6 +36,6 @@
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

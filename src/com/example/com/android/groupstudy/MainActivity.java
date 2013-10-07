@@ -42,6 +42,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		startActivity(new Intent(this, SplashActivity.class));
 
 		btnLogin = (Button) findViewById(R.id.btnLogin);
 		btnRegister = (Button) findViewById(R.id.btnRegister);
