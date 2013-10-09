@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ex" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal" >
+        
+        <Button 
+            android:id="@+id/schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="일정"
+            />
+        <Button 
+            android:id="@+id/member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="주소록"
+            />
+        <Button 
+            android:id="@+id/fine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="벌금"
+            />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+        
+        <Button 
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="타이머"
+            />
+        <Button 
+            android:id="@+id/place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="장소"
+            />
+        <Button 
+            android:id="@+id/bulletinboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="게시판"
+            />
+    </LinearLayout>
+
+</LinearLayout>
