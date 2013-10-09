@@ -29,10 +29,12 @@ public class GroupListActivity extends Activity implements OnClickListener, OnIt
 		btnGroupAdd.setOnClickListener(this);
 		
 		ListView listview = (ListView) findViewById(R.id.listview);
-	    String[] values = new String[] { "취업스터디", "영어스터디" };
+	    String[] values = new String[] { "취업 스터디", "영어 스터디" };
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-	        android.R.layout.simple_list_item_1, values);
+	        R.layout.study_list_font, values);
 	    
+	    
+	    listview.setDividerHeight(3);
 	    listview.setAdapter(adapter);
 	    listview.setOnItemClickListener(this);
 	}
