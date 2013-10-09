@@ -33,6 +33,10 @@
         </activity>
         <activity android:name="com.example.com.android.groupstudy.GroupListActivity" >
         </activity>
+        <activity android:name="com.example.com.android.groupstudy.GroupRegisterActivity" >
+        </activity>
+        <activity android:name="com.android.groupstudy.features.StudyMainActivity">
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

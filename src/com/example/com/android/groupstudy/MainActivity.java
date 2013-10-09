@@ -66,7 +66,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		if (v.getId() == R.id.btnLogin) {
-			LoginProcess();
+			
+			//LoginProcess();				
+			Intent grouplist = new Intent(getApplicationContext(), GroupListActivity.class);
+			grouplist.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(grouplist);
+			
+			finish();
+			
 		} else if (v.getId() == R.id.btnRegister) {
 			Intent register = new Intent(getApplicationContext(),
 					AgreeRegisterActivity.class);
