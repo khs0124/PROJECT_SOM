@@ -14,7 +14,7 @@
 
         <ImageView
             android:id="@+id/imageView01"
-            android:layout_width="100dp"
+            android:layout_width="78dp"
             android:layout_height="37dp"
             android:src="@drawable/login_id" />
 
@@ -22,6 +22,7 @@
             android:id="@+id/loginEmail"
             android:layout_width="165dp"
             android:layout_height="37dp"
+            android:layout_marginLeft="4dp"
             android:background="@drawable/login_empty"
             android:inputType="textEmailAddress"
             android:paddingLeft="10dp" />
@@ -36,7 +37,7 @@
 
         <ImageView
             android:id="@+id/imageView02"
-            android:layout_width="100dp"
+            android:layout_width="78dp"
             android:layout_height="37dp"
             android:src="@drawable/login_pw" />
 
@@ -44,6 +45,7 @@
             android:id="@+id/loginPassword"
             android:layout_width="165dp"
             android:layout_height="37dp"
+            android:layout_marginLeft="4dp"
             android:background="@drawable/login_empty"
             android:inputType="textPassword"
             android:paddingLeft="10dp" />
@@ -60,7 +62,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="115dp"
             android:layout_height="37dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="4dp"
             android:background="@drawable/login_btnlogin"
             />
         
@@ -68,7 +70,7 @@
             android:id="@+id/btnRegister"
             android:layout_width="115dp"
             android:layout_height="37dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="17dp"
             android:background="@drawable/login_btnregister"
             />
     </LinearLayout>
