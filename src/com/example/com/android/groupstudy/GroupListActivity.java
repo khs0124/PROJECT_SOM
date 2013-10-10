@@ -1,21 +1,27 @@
 package com.example.com.android.groupstudy;
 
-import com.android.groupstudy.features.StudyMainActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class GroupListActivity extends Activity implements OnClickListener, OnItemClickListener {
+import com.android.groupstudy.features.StudyMainActivity;
+
+public class GroupListActivity extends Activity implements OnClickListener, OnItemClickListener, OnItemLongClickListener {
 	
 	Button btnGroupAdd;
 	
@@ -37,6 +43,8 @@ public class GroupListActivity extends Activity implements OnClickListener, OnIt
 	    listview.setDividerHeight(3);
 	    listview.setAdapter(adapter);
 	    listview.setOnItemClickListener(this);
+	    //listview.setOnItemLongClickListener(this);
+	    registerForContextMenu(listview);
 	}
 
 	@Override
@@ -59,6 +67,37 @@ public class GroupListActivity extends Activity implements OnClickListener, OnIt
 		Intent studymain = new Intent(getApplicationContext(), StudyMainActivity.class);
 		startActivity(studymain);
 	}
+
+	@Override
+	public boolean onItemLongClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+	                                ContextMenuInfo menuInfo) {
+	    super.onCreateContextMenu(menu, v, menuInfo);
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.grouplist_contextmenu, menu);
+	}
 	
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+	    AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+	    switch (item.getItemId()) {
+	        case R.id.group_enter:
+	            return true;
+	        case R.id.group_name_change:
+	            return true;
+	        case R.id.group_member:
+	        	return true;
+	        case R.id.group_exit:
+	        	return true;
+	        default:
+	            return super.onContextItemSelected(item);
+	    }
+	}
 
 }

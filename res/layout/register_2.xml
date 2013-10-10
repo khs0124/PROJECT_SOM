@@ -97,8 +97,7 @@
             android:id="@+id/imageView04"
             android:layout_width="80dp"
             android:layout_height="37dp"
-            android:src="@drawable/register_name" />
-        <!-- 생년월일 이미지로 바꿔야 함 -->
+            android:src="@drawable/register_birth" />
 
         <EditText
             android:id="@+id/input_birth"

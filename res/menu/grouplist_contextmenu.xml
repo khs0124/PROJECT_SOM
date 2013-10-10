@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/group_enter"
+        android:title="들어가기">
+    </item>
+    <item
+        android:id="@+id/group_name_change"
+        android:title="스터디 이름 설정">
+    </item>
+    <item
+        android:id="@+id/group_member"
+        android:title="그룹원 보기">
+    </item>
+    <item
+        android:id="@+id/group_exit"
+        android:title="나가기">
+    </item>
+
+</menu>
