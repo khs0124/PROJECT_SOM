@@ -2,65 +2,97 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/ex" >
+    android:background="@drawable/study_main"
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="145dp"
+        android:gravity="left"
         android:orientation="horizontal" >
-        
-        <Button 
+
+        <Button
             android:id="@+id/schedule"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:text="일정"
-            />
-        <Button 
+            android:layout_width="66dp"
+            android:layout_height="64dp"
+            android:background="@drawable/study_schedulebtn" />
+
+        <Button
             android:id="@+id/member"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:text="주소록"
-            />
-        <Button 
-            android:id="@+id/fine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="벌금"
-            />
+            android:layout_width="66dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/study_memberbtn" />
     </LinearLayout>
-    
+
+    <ImageView
+        android:id="@+id/imageView01"
+        android:layout_width="238dp"
+        android:layout_height="23dp"
+        android:layout_gravity="left"
+        android:background="@drawable/study_main_leftbar" >
+    </ImageView>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="10dp"
+        android:gravity="right"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
         android:orientation="horizontal" >
-        
-        <Button 
+
+        <Button
+            android:id="@+id/fine"
+            android:layout_width="66dp"
+            android:layout_height="64dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/study_finebtn" />
+
+        <Button
             android:id="@+id/timer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:text="타이머"
-            />
-        <Button 
-            android:id="@+id/place"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:text="장소"
-            />
-        <Button 
-            android:id="@+id/bulletinboard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="게시판"
-            />
+            android:layout_width="66dp"
+            android:layout_height="64dp"
+            android:background="@drawable/study_timerbtn"/>
     </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/imageView02"
+        android:layout_width="238dp"
+        android:layout_height="23dp"
+        android:layout_gravity="right"
+        android:background="@drawable/study_main_rightbar" >
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="40dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/place"
+            android:layout_width="66dp"
+            android:layout_height="64dp"
+            android:background="@drawable/study_placebtn" />
+
+        <Button
+            android:id="@+id/bulletinboard"
+            android:layout_width="66dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/study_bulletinbtn" />
+    </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/imageView03"
+        android:layout_width="238dp"
+        android:layout_height="23dp"
+        android:layout_gravity="left"
+        android:background="@drawable/study_main_leftbar" >
+    </ImageView>
 
 </LinearLayout>
