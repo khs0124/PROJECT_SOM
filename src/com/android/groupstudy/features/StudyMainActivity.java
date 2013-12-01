@@ -15,6 +15,8 @@ import com.example.com.android.groupstudy.R;
 public class StudyMainActivity extends Activity implements OnClickListener{
 	
 	private Button timer;
+	private Button member;
+	private Button bulletin;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -22,15 +24,12 @@ public class StudyMainActivity extends Activity implements OnClickListener{
 		setContentView(R.layout.study_main);
 		
 		timer = (Button)findViewById(R.id.timer);
+		member = (Button)findViewById(R.id.member);
+		bulletin = (Button)findViewById(R.id.bulletinboard);
 		
 		timer.setOnClickListener(this);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		member.setOnClickListener(this);
+		bulletin.setOnClickListener(this);
 	}
 
 	@Override
@@ -39,7 +38,20 @@ public class StudyMainActivity extends Activity implements OnClickListener{
 		if(v.getId() == R.id.timer){
 			Intent timer = new Intent(getApplicationContext(),
 					TimerActivity.class);
+			timer.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(timer);
-		}		
+		}	
+		else if(v.getId() == R.id.member){
+			Intent member = new Intent(getApplicationContext(),
+					MemberActivity.class);
+			member.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(member);
+		}
+		else if(v.getId() == R.id.bulletinboard){
+			Intent bulltein = new Intent(getApplicationContext(),
+					BullteinActivity.class);
+			bulltein.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(bulltein);
+		}
 	}
 }

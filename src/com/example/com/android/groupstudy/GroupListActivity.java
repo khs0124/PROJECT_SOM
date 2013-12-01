@@ -16,6 +16,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,7 +45,7 @@ public class GroupListActivity extends Activity implements OnClickListener, OnIt
 	Button btnGroupAdd;
 	SimpleAdapter list;
 	String []gid;
-	String gname;
+	String []gname;
 	int position;
 	
 	ArrayList<HashMap<String, String>> groupList;
@@ -52,7 +53,7 @@ public class GroupListActivity extends Activity implements OnClickListener, OnIt
 	
 	JSONParser jsonParser = new JSONParser();
 	
-	private static final String delete_grouplist_url = "http://192.168.0.43/android_login_api/delete_grouplist.php";
+	private static final String delete_grouplist_url = "http://192.168.0.217/android_login_api/delete_grouplist.php";
 	
 	private static final String KEY_SUCCESS = "success";
 	private static final String KEY_GID = "gid";
@@ -86,17 +87,12 @@ public class GroupListActivity extends Activity implements OnClickListener, OnIt
 	    
 	    int grouplistNum = groupList.size();
 		gid = new String[grouplistNum];
+		gname = new String[grouplistNum];
 		
 		for(int i=0; i<grouplistNum; i++){
 			gid[i] = groupList.get(i).get(KEY_GID);
+			gname[i] = groupList.get(i).get(KEY_GNAME);
 		}
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
 	}
 
 	@Override
@@ -107,8 +103,14 @@ public class GroupListActivity extends Activity implements OnClickListener, OnIt
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+	public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
 		// TODO Auto-generated method stub
+		Log.d("gname : ", gname[position]);
+		
+		SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+		SharedPreferences.Editor editor = pref.edit();
+		editor.putString("gname", gname[position]);
+		editor.commit();
 		Intent studymain = new Intent(getApplicationContext(), StudyMainActivity.class);
 		startActivity(studymain);
 	}
@@ -134,6 +136,8 @@ public class GroupListActivity extends Activity implements OnClickListener, OnIt
 	    
 	    switch (item.getItemId()) {
 	        case R.id.group_enter:
+	        	position = info.position;
+	        	Log.d("gname : ", gname[position]);
 	        	Intent studymain = new Intent(getApplicationContext(), StudyMainActivity.class);
 	    		startActivity(studymain);
 	            return true;
@@ -150,9 +154,38 @@ public class GroupListActivity extends Activity implements OnClickListener, OnIt
 	
 	@Override
 	public void onBackPressed() {
-		finish();
-		// super.onBackPressed();
-	}
+		AlertDialog.Builder altCancel = new AlertDialog.Builder(this);
+		altCancel
+				.setMessage("로그인 화면으로 돌아가시겠습니까 ?")
+				.setCancelable(false)
+				.setPositiveButton("예", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						Intent main = new Intent(getApplicationContext(),
+								MainActivity.class);
+						startActivity(main);
+						
+						finish();
+					}
+				})
+				.setNegativeButton("아니오",
+						new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								// TODO Auto-generated method stub
+								dialog.cancel();
+							}
+						});
+
+		AlertDialog alert = altCancel.create();
+		alert.setTitle("그룹리스트");
+		alert.show();
+	}		
+		
 	
 	class DeleteGroupList extends AsyncTask<String, String, String>{
 		

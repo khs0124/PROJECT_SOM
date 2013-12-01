@@ -26,12 +26,12 @@ public class GroupRegisterActivity extends Activity implements OnClickListener {
 	Button btnGroupCancel;
 
 	EditText inputGroupname;
+	EditText leader;
 	EditText inputMember1;
 	EditText inputMember2;
 	EditText inputMember3;
 	EditText inputMember4;
 	EditText inputMember5;
-	EditText inputMember6;
 
 	// JSON Response node names
 	private static String KEY_SUCCESS = "success";
@@ -53,22 +53,15 @@ public class GroupRegisterActivity extends Activity implements OnClickListener {
 
 		inputGroupname = (EditText) findViewById(R.id.group_name);
 
+		leader = (EditText) findViewById(R.id.leader);
 		inputMember1 = (EditText) findViewById(R.id.member1);
 		inputMember2 = (EditText) findViewById(R.id.member2);
 		inputMember3 = (EditText) findViewById(R.id.member3);
 		inputMember4 = (EditText) findViewById(R.id.member4);
 		inputMember5 = (EditText) findViewById(R.id.member5);
-		inputMember6 = (EditText) findViewById(R.id.member6);
 
 		btnGroupRegister.setOnClickListener(this);
 		btnGroupCancel.setOnClickListener(this);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
 	}
 
 	@Override
@@ -90,12 +83,12 @@ public class GroupRegisterActivity extends Activity implements OnClickListener {
 		String gname = inputGroupname.getText().toString();
 		String member[] = new String[MEMBER_NUM];
 		
-		member[0] = inputMember1.getText().toString();
-		member[1] = inputMember2.getText().toString();
-		member[2] = inputMember3.getText().toString();
-		member[3] = inputMember4.getText().toString();
-		member[4] = inputMember5.getText().toString();
-		member[5] = inputMember6.getText().toString();
+		member[0] = leader.getText().toString();
+		member[1] = inputMember1.getText().toString();
+		member[2] = inputMember2.getText().toString();
+		member[3] = inputMember3.getText().toString();
+		member[4] = inputMember4.getText().toString();
+		member[5] = inputMember5.getText().toString();
 		
 		if (gname.equals("")) {
 			Toast.makeText(this, "그룹명을 입력하세요", Toast.LENGTH_SHORT).show();
@@ -113,7 +106,7 @@ public class GroupRegisterActivity extends Activity implements OnClickListener {
 		for(int i=0; i<MEMBER_NUM; i++){
 			if(member[i].equals(""))
 				break;
-			JSONObject json = userFunction.registerGroup(gname, member[i]);
+			JSONObject json = userFunction.registerGroup(gname, member[i], member[0]);
 		}
 		
 		Toast.makeText(this, "그룹생성 완료", Toast.LENGTH_SHORT).show();

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bulletin_bg"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="50dp"
+        android:stretchColumns="*" >
+
+        <TableRow >
+
+            <Button
+                android:id="@+id/jobkorea"
+                android:layout_width="95dp"
+                android:layout_height="65dp"
+                android:background="@drawable/bulletin_jobkorea" />
+
+            <Button
+                android:id="@+id/saramin"
+                android:layout_width="95dp"
+                android:layout_height="65dp"
+                android:background="@drawable/bulletin_saramin" />
+
+            <Button
+				android:id="@+id/joberum"                
+                android:layout_width="95dp"
+                android:layout_height="65dp"
+                android:background="@drawable/bulletin_joberum" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp" >
+
+            <Button
+                android:id="@+id/hackers"
+                android:layout_width="95dp"
+                android:layout_height="65dp"
+                android:background="@drawable/bulletin_hackers" />
+
+            <Button
+                android:id="@+id/pagoda"
+                android:layout_width="95dp"
+                android:layout_height="65dp"
+                android:background="@drawable/bulletin_pagoda" />
+
+            <Button
+                android:id="@+id/ybm"
+                android:layout_width="95dp"
+                android:layout_height="65dp"
+                android:background="@drawable/bulletin_ybm" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp" >
+
+            <Button
+                android:id="@+id/toeic"
+                android:layout_width="95dp"
+                android:layout_height="65dp"
+                android:background="@drawable/bulletin_toeic" />
+
+            <Button
+                android:id="@+id/opic"
+                android:layout_width="95dp"
+                android:layout_height="65dp"
+                android:background="@drawable/bulletin_opic" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

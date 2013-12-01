@@ -41,6 +41,30 @@
             android:id="@+id/imageView02"
             android:layout_width="80dp"
             android:layout_height="37dp"
+            android:src="@drawable/group_leader" />
+
+        <EditText
+            android:id="@+id/leader"
+            android:layout_width="200dp"
+            android:layout_height="37dp"
+            android:background="@drawable/register_empty"
+            android:hint="ID(이메일)를 입력하세요"
+            android:inputType="textNoSuggestions|textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textSize="14sp" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageView02"
+            android:layout_width="80dp"
+            android:layout_height="37dp"
             android:src="@drawable/group_member" />
 
         <EditText
@@ -48,7 +72,6 @@
             android:layout_width="200dp"
             android:layout_height="37dp"
             android:background="@drawable/register_empty"
-            android:hint="ID(이메일)를 입력하세요"
             android:inputType="textNoSuggestions|textEmailAddress"
             android:paddingLeft="10dp"
             android:textSize="14sp" />
@@ -89,17 +112,6 @@
 
     <EditText
         android:id="@+id/member5"
-        android:layout_width="200dp"
-        android:layout_height="37dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/register_empty"
-        android:inputType="textNoSuggestions|textEmailAddress"
-        android:paddingLeft="10dp"
-        android:textSize="14sp" />
-
-    <EditText
-        android:id="@+id/member6"
         android:layout_width="200dp"
         android:layout_height="37dp"
         android:layout_marginLeft="100dp"

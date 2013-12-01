@@ -37,8 +37,6 @@ public class JSONParser {
 
 		// Making HTTP request
 		try {
-
-			
 			if(method == "POST"){
                 // request method is POST
                 // defaultHttpClient

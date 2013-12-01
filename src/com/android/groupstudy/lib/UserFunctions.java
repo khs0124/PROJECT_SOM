@@ -15,8 +15,8 @@ public class UserFunctions {
 	
 	private JSONParser jsonParser;
 	
-	private static String loginURL = "http://192.168.0.43/android_login_api/";
-	private static String registerURL = "http://192.168.0.43/android_login_api/";
+	private static String loginURL = "http://192.168.0.217/android_login_api/";
+	private static String registerURL = "http://192.168.0.217/android_login_api/";
 	
 	private static String login_tag = "login";
 	private static String register_tag = "register";
@@ -66,13 +66,14 @@ public class UserFunctions {
 		return json;
 	}
 	
-	public JSONObject registerGroup(String gname, String members){
+	public JSONObject registerGroup(String gname, String members, String leader){
 		
 		// Building Parameters
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("tag", group_register_tag));
 		params.add(new BasicNameValuePair("gname", gname));
 		params.add(new BasicNameValuePair("members", members));
+		params.add(new BasicNameValuePair("leader", leader));
 		
 		// getting JSON Object
 		JSONObject json = jsonParser.getJSONFromUrl(registerURL, "POST", params);

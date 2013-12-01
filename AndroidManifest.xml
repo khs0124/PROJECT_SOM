@@ -60,6 +60,16 @@
             android:configChanges="orientation|keyboardHidden|keyboard"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.android.groupstudy.features.MemberActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.android.groupstudy.features.BullteinActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

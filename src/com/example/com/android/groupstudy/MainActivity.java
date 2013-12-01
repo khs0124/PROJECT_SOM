@@ -15,6 +15,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -24,8 +25,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.android.groupstudy.lib.DatabaseHandler;
@@ -40,6 +39,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	EditText loginPassword;
 	
 	String email;
+	Boolean pushLoginBtn = true;
 
 	// JSON Response node names
 	private static String KEY_SUCCESS = "success";
@@ -57,7 +57,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private static String KEY_GROUPLISTS = "grouplists";
 	
 	private ProgressDialog pDialog;
-	private static String get_grouplist_url = "http://192.168.0.43/android_login_api/grouplist.php";
+	private static String get_grouplist_url = "http://192.168.0.217/android_login_api/grouplist.php";
 	
 	ArrayList<HashMap<String, String>> groupList;
 	JSONParser jsonParser = new JSONParser();
@@ -66,7 +66,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-//		StrictMode.enableDefaults();
+		//StrictMode.enableDefaults();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
@@ -82,19 +82,13 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		btnLogin.setOnClickListener(this);
 		btnRegister.setOnClickListener(this);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		
 	}
 
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		if (v.getId() == R.id.btnLogin) {
+		if (v.getId() == R.id.btnLogin && pushLoginBtn) {
 			LoginProcess();
 
 		} else if (v.getId() == R.id.btnRegister) {
@@ -137,6 +131,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private void LoginProcess() {
 		// TODO Auto-generated method stub
+		pushLoginBtn = false;
+		
 		email = loginEmail.getText().toString();
 		String password = loginPassword.getText().toString();
 		
@@ -148,6 +144,11 @@ public class MainActivity extends Activity implements OnClickListener {
 			Toast.makeText(this, "비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
 			return;
 		}
+		
+		SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+		SharedPreferences.Editor editor = pref.edit();
+		editor.putString("email", email);
+		editor.commit();
 		
 		Log.d("Button", "Login");
 		UserFunctions userFunction = new UserFunctions();
@@ -168,7 +169,6 @@ public class MainActivity extends Activity implements OnClickListener {
 							json_user.getString(KEY_PHONENUM), json.getString(KEY_UID), json_user.getString(KEY_CREATED_AT));
 					
 					new LoadGroupList().execute();
-					
 				}
 			}
 		} catch (JSONException e){
@@ -231,6 +231,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		protected void onPostExecute(String file_url) {
             // dismiss the dialog after getting all products
             pDialog.dismiss();
+            pushLoginBtn = true;
             
             Intent grouplist = new Intent(getApplicationContext(), GroupListActivity.class);
 			grouplist.putExtra("groupList", groupList);
