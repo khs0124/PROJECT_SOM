@@ -53,7 +53,7 @@ public class GroupListActivity extends Activity implements OnClickListener, OnIt
 	
 	JSONParser jsonParser = new JSONParser();
 	
-	private static final String delete_grouplist_url = "http://192.168.0.217/android_login_api/delete_grouplist.php";
+	private static final String delete_grouplist_url = "http://192.168.0.43/android_login_api/delete_grouplist.php";
 	
 	private static final String KEY_SUCCESS = "success";
 	private static final String KEY_GID = "gid";

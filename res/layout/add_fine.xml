@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/register_group_bg"
+    android:orientation="vertical"
+    android:visibility="visible" >
+
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageView01"
+            android:layout_width="80dp"
+            android:layout_height="37dp"
+            android:src="@drawable/fine_name" />
+
+        <EditText
+            android:id="@+id/fine_email"
+            android:layout_width="200dp"
+            android:layout_height="37dp"
+            android:background="@drawable/fine_add_empty"
+            android:hint="벌금 등록할 사람"
+            android:inputType="textNoSuggestions|textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageView02"
+            android:layout_width="80dp"
+            android:layout_height="37dp"
+            android:src="@drawable/fine_content" />
+
+        <EditText
+            android:id="@+id/fine_content"
+            android:layout_width="200dp"
+            android:layout_height="37dp"
+            android:background="@drawable/fine_add_empty"
+            android:hint="벌금 내용"
+            android:inputType="textNoSuggestions"
+            android:paddingLeft="10dp"
+            android:textSize="14sp" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageView02"
+            android:layout_width="80dp"
+            android:layout_height="37dp"
+            android:src="@drawable/fine_money" />
+
+        <EditText
+            android:id="@+id/fine_money"
+            android:layout_width="200dp"
+            android:layout_height="37dp"
+            android:background="@drawable/fine_add_empty"
+            android:inputType="textNoSuggestions|number"
+            android:paddingLeft="10dp"
+            android:hint="벌금 금액"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="112dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/fine_add" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="112dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/fine_cancel" />
+    </LinearLayout>
+
+</LinearLayout>

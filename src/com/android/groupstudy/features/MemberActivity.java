@@ -41,7 +41,7 @@ public class MemberActivity extends Activity {
 
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
-	private static final String get_membersinfo_url = "http://192.168.0.217/android_login_api/get_members.php";
+	private static final String get_membersinfo_url = "http://192.168.0.43/android_login_api/get_members.php";
 
 	private static final String KEY_SUCCESS = "success";
 	private static final String KEY_NAME = "name";
@@ -157,7 +157,7 @@ public class MemberActivity extends Activity {
 							
 							if(j==0){
 								ViewGroup.MarginLayoutParams margin = new ViewGroup.MarginLayoutParams(member[j].getLayoutParams());
-								margin.setMargins(0, 100, 0, 0);
+								margin.setMargins(0, 140, 0, 0);
 								member[j].setLayoutParams(new LinearLayout.LayoutParams(margin));
 							}
 							else{

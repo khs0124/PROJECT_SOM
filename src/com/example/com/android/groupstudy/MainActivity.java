@@ -57,7 +57,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private static String KEY_GROUPLISTS = "grouplists";
 	
 	private ProgressDialog pDialog;
-	private static String get_grouplist_url = "http://192.168.0.217/android_login_api/grouplist.php";
+	private static String get_grouplist_url = "http://192.168.0.43/android_login_api/grouplist.php";
 	
 	ArrayList<HashMap<String, String>> groupList;
 	JSONParser jsonParser = new JSONParser();
@@ -66,7 +66,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		//StrictMode.enableDefaults();
+		StrictMode.enableDefaults();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
