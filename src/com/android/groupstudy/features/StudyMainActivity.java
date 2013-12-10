@@ -35,13 +35,14 @@ public class StudyMainActivity extends Activity implements OnClickListener {
 	private Button member;
 	private Button bulletin;
 	private Button fine;
+	private Button schedule;
 
 	String members;
 	String gname;
-	
+
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
-	
+
 	private static String KEY_SUCCESS = "success";
 	private static final String join_users_and_groups_url = "http://192.168.0.43/android_login_api/join_users_and_groups.php";
 
@@ -55,17 +56,19 @@ public class StudyMainActivity extends Activity implements OnClickListener {
 		member = (Button) findViewById(R.id.member);
 		bulletin = (Button) findViewById(R.id.bulletinboard);
 		fine = (Button) findViewById(R.id.fine);
+		schedule = (Button) findViewById(R.id.schedule);
 
 		timer.setOnClickListener(this);
 		member.setOnClickListener(this);
 		bulletin.setOnClickListener(this);
 		fine.setOnClickListener(this);
+		schedule.setOnClickListener(this);
 
 		SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
 		members = pref.getString("email", "");
 		gname = pref.getString("gname", "");
-		
-		new JoinUsersAndGroups().execute(); 
+
+		new JoinUsersAndGroups().execute();
 	}
 
 	@Override
@@ -91,6 +94,11 @@ public class StudyMainActivity extends Activity implements OnClickListener {
 					FineActivity.class);
 			fine.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(fine);
+		} else if (v.getId() == R.id.schedule) {
+			Intent schedule = new Intent(getApplicationContext(),
+					ScheduleActivity.class);
+			schedule.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(schedule);
 		}
 
 	}
@@ -133,8 +141,8 @@ public class StudyMainActivity extends Activity implements OnClickListener {
 			}
 			return null;
 		}
-		
-		//protected void onPostExecute(String file_url) {
-		//}
+
+		// protected void onPostExecute(String file_url) {
+		// }
 	}
 }

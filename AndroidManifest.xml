@@ -80,6 +80,21 @@
             android:configChanges="orientation|keyboardHidden|keyboard"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.android.groupstudy.features.ScheduleActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.android.groupstudy.features.ScheduleAddActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.android.groupstudy.features.ScheduleUpdateActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
